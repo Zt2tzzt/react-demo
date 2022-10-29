@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JSX中插入内容</title>
+</head>
+<body>
+
+	<div id="root"></div>
+
+	<script src="../../lib/react.development.js"></script>
+	<script src="../../lib/react-dom.development.js"></script>
+	<script src="../../lib/babel.min.js"></script>
+
+	<script type="text/babel">
+		class App extends React.Component {
+			constructor() {
+				super()
+				this.state = {
+					counter: 100,
+					msg: 'Hello React',
+					movies: ['星际穿越', '大话西游', '盗梦空间', '黑客帝国'],
+
+					aaa: undefined,
+					bbb: null,
+					ccc: true,
+
+					friend: { name: 'kobe', age: 30, address: 'LA' },
+
+					firstname: 'jesse',
+					lastname: 'lingard',
+					age: 29,
+
+				}
+			}
+
+			render() {
+				// 插入标识符
+				const { msg, counter } = this.state
+				const { aaa, bbb, ccc } = this.state
+				const { friend } = this.state
+
+				// 对内容进行运算后显示
+				const { firstname, lastname, age, movies } = this.state
+				const fullName = firstname + lastname
+				const liEls = movies.map(item => <li> { item } </li>)
+				
+				return (
+					<div>
+						{ /* 可直接显示出来 */ }
+						<h2>{ counter }</h2>
+						<h2>{ msg }</h2>
+						<h2>{ movies }</h2>
+
+						{ /* undefined / null / Boolean 显示成文本 */ }
+						<h2>{ String(aaa) } 或 { aaa + '' }</h2>
+						<h2>{ String(bbb) } 或 { bbb + '' }</h2>
+						<h2>{ ccc.toString() }</h2>
+
+						{ /* Object 类型不能作为 jsx 标签的子元素被引用 */ }
+						<h2>{ friend.name }</h2>
+						<h2>{ Object.keys(friend) }</h2>
+
+						{ /* 插入计算结果 */ }
+						<h2>{ fullName }</h2>
+						<ul>{ liEls }</ul>
+						{ /* 插入表达式 */ }
+						<h2>{ age >= 18 ? '成年人' : '未成年人'  }</h2>
+
+						{ /* 调用方法 */ }
+						<ul>{ this.getMovieEls() }</ul>
+					</div>
+				)
+			}
+
+			getMovieEls() {
+				console.log('this:', this)
+				return this.state.movies.map(item => <li>{ item }</li>)
+			}
+		}
+
+		const root = ReactDOM.createRoot(document.querySelector('#root'))
+		root.render(<App/>)
+	</script>
+</body>
+</html>

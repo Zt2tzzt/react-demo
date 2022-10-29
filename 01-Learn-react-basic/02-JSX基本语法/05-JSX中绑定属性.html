@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JSX绑定属性</title>
+</head>
+<body>
+	<div id="root"></div>
+
+	<script src="../../lib/react.development.js"></script>
+	<script src="../../lib/react-dom.development.js"></script>
+	<script src="../../lib/babel.min.js"></script>
+
+	<script type="text/babel">
+		class App extends React.Component {
+			constructor() {
+				super()
+				this.state = {
+					title: '哈哈哈',
+					imgUrl: 'https://images5.alphacoders.com/109/1096785.jpg',
+					isActive: true,
+					styleObj: {
+						color: 'red',
+						fontsize: '30px'
+					}
+				}
+			}
+
+			render() {
+				const { title, imgUrl, isActive, styleObj } = this.state
+
+				// 绑定 class 写法一
+				const classList1 = `abc cba ${ isActive ? 'active' : '' }`
+				// 绑定 class 写法二
+				const classList2 = ['abc', 'cba']
+				if (isActive) classList2.push('active')
+				// 绑定 class 写法三，第三方库 classnames，一般通过 npm install classnames 引入
+
+				return (
+					<div>
+						{ /* 基本属性绑定 */ }
+						<h2 title={ title }>title 属性绑定</h2>	
+						<img src={ imgUrl } />
+
+						{ /* 绑定 class 属性，最好使用 className */ }
+						<h2 className={ classList1 }>绑定 class 属性</h2>
+						<h2 className={ classList2.join(' ') }>绑定 class 属性</h2>
+
+						{ /* 绑定 style 属性，即绑定对象类型 */ }
+						<h2 style={ styleObj }>绑定 style 属性</h2>
+					</div>
+				)
+			}
+		}
+
+		const root = ReactDOM.createRoot(document.querySelector('#root'))
+		root.render(<App/>)
+	</script>
+</body>
+</html>
