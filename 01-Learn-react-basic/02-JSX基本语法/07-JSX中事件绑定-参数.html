@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="root"></div>
+
+		<script src="../../lib/react.development.js"></script>
+		<script src="../../lib/react-dom.development.js"></script>
+		<script src="../../lib/babel.min.js"></script>
+
+		<script type="text/babel">
+			class App extends React.Component {
+				constructor() {
+					super()
+					this.state = {
+						msg: 'Hello World'
+					}
+				}
+
+				onBtn1Click(event) {
+					console.log('btn1 event:', event)
+				}
+
+				onBtn2Click(event) {
+					console.log('btn2 event:', event)
+				}
+
+				// 通过 bind 绑定 this 后，event 参数只能作为最后一个参数传递
+				onBtn3Click(name, age, event) {
+					console.log('name:', name)
+					console.log('age:', age)
+					console.log('event:', event)
+				}
+
+				onBtn4Click(event, name, age) {
+					console.log('event:', event)
+					console.log('name:', name)
+					console.log('age:', age)
+				}
+
+				render() {
+					return (
+						<div>
+							{/* event 参数的传递 */}
+							<button onClick={this.onBtn1Click.bind(this)}>按钮1</button>
+							<button onClick={ (evnet) => this.onBtn2Click(event) }>按钮2</button>
+							
+							{/* 额外的参数传递 */}
+							<button onClick={ this.onBtn3Click.bind(this, 'zzt', 18) }>按钮3（不推荐）</button>
+							<button onClick={ (e) => this.onBtn4Click(e, 'zzt', 18) }>按钮4（推荐）</button>
+						</div>
+					)
+				}
+			}
+
+			const root = ReactDOM.createRoot(document.querySelector('#root'))
+			root.render(<App />)
+		</script>
+	</body>
+</html>
