@@ -10,7 +10,12 @@ import ReactDOM from 'react-dom/client'
 // import App from './09-非父子组件通信/App'
 // import App from './10-非父子组件通信-EventBus/App'
 // import App from './11-setState的使用/05-手动将setState改为同步的'
-import App from './12-render函数的优化/App'
+// import App from './12-render函数的优化/App'
+// import App from './13-数不可变的力量/App'
+// import App from './14-ref获取DOM和组件/01_ref获取DOM'
+// import App from './14-ref获取DOM和组件/03-ref获取函数组件的DOM'
+import App from './15-受控和非受控组件/06-非受控组件的使用'
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(<App />)
