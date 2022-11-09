@@ -14,7 +14,11 @@ import ReactDOM from 'react-dom/client'
 // import App from './13-数不可变的力量/App'
 // import App from './14-ref获取DOM和组件/01_ref获取DOM'
 // import App from './14-ref获取DOM和组件/03-ref获取函数组件的DOM'
-import App from './15-受控和非受控组件/06-非受控组件的使用'
+// import App from './15-受控和非受控组件/06-非受控组件的使用'
+// import App from './16-React高阶组件/02-函数组件的应用'
+// import App from './16-React高阶组件/05-高阶函数的应用测量渲染时间'
+// import App from './18-React的fragment写法/App'
+import App from './19-React的严格模式/App'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
