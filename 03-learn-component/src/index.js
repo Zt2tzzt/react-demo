@@ -19,6 +19,8 @@ import ReactDOM from 'react-dom/client'
 // import App from './16-React高阶组件/05-高阶函数的应用测量渲染时间'
 // import App from './18-React的fragment写法/App'
 import App from './19-React的严格模式/App'
+// import App from './20-React的动画实现/03-TransitionGroup/App'
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
