@@ -1,0 +1,11 @@
+.section {
+  bottom: 1px solid red;
+}
+.section .title {
+  font-size: 30px;
+  color: red;
+}
+.section .content {
+  font-size: 20px;
+  color: red;
+}
