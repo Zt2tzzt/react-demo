@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { HomeWrapper } from './style'
+import { HomeWrapper, ZTButtonWrapper } from './style'
 
 export class Home extends PureComponent {
 	render() {
@@ -16,6 +16,8 @@ export class Home extends PureComponent {
 						<li className="item">商品列表3</li>
 					</ul>
 				</div>
+				
+				<ZTButtonWrapper>哈哈哈</ZTButtonWrapper>
 			</HomeWrapper>
 		)
 	}
