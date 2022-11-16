@@ -9,7 +9,7 @@ function reducer(state = initialState, action) {
 		case actionType.ADD_NUMBER:
 			return { ...state, counter: state.counter + action.count }
 		case actionType.SUB_NUMBER:
-			return { ...state, counter: state.counter + action.count}
+			return { ...state, counter: state.counter - action.count}
 		default:
 			return state;
 	}

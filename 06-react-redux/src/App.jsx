@@ -3,6 +3,7 @@ import Home from './page/Home'
 import Profile from './page/Profile'
 import './App.css'
 import store from './store'
+import About from './page/About'
 
 export class App extends PureComponent {
   constructor() {
@@ -27,6 +28,7 @@ export class App extends PureComponent {
         <div className="pages">
           <Home />
           <Profile />
+          <About />
         </div>
       </div>
     )
