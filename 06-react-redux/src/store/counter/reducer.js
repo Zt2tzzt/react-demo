@@ -1,7 +1,7 @@
 import * as actionType from "./constancs";
 
 const initialState = {
-	counter: 100
+	counter: 100,
 }
 
 function reducer(state = initialState, action) {

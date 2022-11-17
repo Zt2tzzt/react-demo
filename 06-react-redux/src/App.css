@@ -1,9 +1,11 @@
 .pages {
 	display: flex;
+	flex-wrap: wrap;
 }
 
 .pages div {
-	flex: 1;
+	/* flex: 1; */
+	width: 45%;
 	border: 1px #f00 solid;
 	padding: 10px;
 }

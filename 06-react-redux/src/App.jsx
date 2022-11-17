@@ -4,18 +4,19 @@ import Profile from './page/Profile'
 import './App.css'
 import store from './store'
 import About from './page/About'
+import Category from './page/Category'
 
 export class App extends PureComponent {
   constructor() {
     super()
     this.state = {
-      counter: store.getState().counter
+      counter: store.getState().counter.counter
     }
   }
 
   componentDidMount() {
     store.subscribe(() => {
-      const state = store.getState()
+      const state = store.getState().counter
       this.setState({ counter: state.counter })
     })
   }
@@ -29,6 +30,7 @@ export class App extends PureComponent {
           <Home />
           <Profile />
           <About />
+          <Category />
         </div>
       </div>
     )
