@@ -7,8 +7,13 @@ export const fetchHomeMultidateAction = createAsyncThunk('home/multidata', async
 
 	// 1. 发送网络请求
 	const res = await axios.get("http://123.207.32.32:8000/home/multidata")
+	// 2.取出数据，并且在此处直接 dispatch action
+	const banners = res.data.data.banner.list
+	const recommends = res.data.data.recommend.list
+	dispatch(changeBanners(banners))
+	dispatch(changeRecommends(recommends))
 	// 2. 返回结果，action 变为 fullfilled 状态
-	return res.data
+	// return res.data
 })
 
 const homeSlice = createSlice({
@@ -27,7 +32,7 @@ const homeSlice = createSlice({
 			state.recommends = payload
 		}
 	},
-	extraReducers: builder => {
+	/* extraReducers: builder => {
 		builder
 			.addCase(fetchHomeMultidateAction.pending, (state, action) => {
 				console.log('fetchHomeMultidateAction pending')
@@ -39,7 +44,7 @@ const homeSlice = createSlice({
 			.addCase(fetchHomeMultidateAction.rejected, (state, action) => {
 				console.log('fetchHomeMultidateAction rejected')
 			})
-	}
+	} */
 })
 
 export const { changeBanners, changeRecommends } = homeSlice.actions
