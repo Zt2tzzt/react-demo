@@ -1,7 +1,9 @@
-import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
+// import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
+import { createStore, combineReducers } from 'redux'
+import { log, thunk, applyMiddleware } from './middleware'
 import counterReducer from './counter';
 import homeReducer from './home';
-import thunk from 'redux-thunk';
+// import thunk from 'redux-thunk';
 
 // 将两个 reducer 合并在一起
 const reducer = combineReducers({
@@ -18,9 +20,14 @@ const reducer = combineReducers({
 	}
 } */
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({trace: true}) || compose; // 开发环境
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({trace: true}) || compose; // 开发环境
 // const composeEnhancers = compose; // 生产环境
 
-const enhancer = applyMiddleware(thunk)
-const store = createStore(reducer, composeEnhancers(enhancer))
+// const enhancer = applyMiddleware(thunk)
+// const store = createStore(reducer, composeEnhancers(enhancer))
+
+const store = createStore(reducer)
+
+applyMiddleware(store, log, thunk)
+
 export default store
