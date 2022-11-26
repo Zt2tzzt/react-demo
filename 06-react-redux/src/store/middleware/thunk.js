@@ -3,8 +3,10 @@ function thunk(store) {
 
 	function disptachThunk(action) {
 		if (typeof action === 'function') {
+			console.log('dispatch function')
 			action(store.dispatch, store.getState)
 		} else {
+			console.log('dispatch obj')
 			next(action)
 		}
 	}
