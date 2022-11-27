@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './01-不适用Hooks/App';
+import App from './02-计数器案例对比/App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
