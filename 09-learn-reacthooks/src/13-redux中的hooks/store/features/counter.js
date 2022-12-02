@@ -14,7 +14,6 @@ const counterSlice = createSlice({
 			state.count = state.count - payload
 		},
 		changeMsgAction(state, { payload }) {
-			console.log(payload)
 			state.msg = payload
 		}
 	}

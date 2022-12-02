@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './13-redux中的hooks/App'
+import App from './15-useTransition和useDeferredValue/02-useDeferredValue的使用'
 import store from './13-redux中的hooks/store'
 import { UserContext, TokenContext } from './12-自定义Hook/context'
 import { Provider } from 'react-redux'
