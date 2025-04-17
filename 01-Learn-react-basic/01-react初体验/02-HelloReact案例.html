@@ -1,43 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Hello React</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello React</title>
+  </head>
+  <body>
+    <div id="root"></div>
 
-	<div id="root"></div>
+    <!-- 引入下载到本地的依赖 -->
+    <!-- 添加依赖，三个包，使用 CDN 引入 -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- babel -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
-	<!-- 引入下载到本地的依赖 -->
-	<script src="../../lib/react.development.js"></script>
-	<script src="../../lib/react-dom.development.js"></script>
-	<script src="../../lib/babel.min.js"></script>
+    <script type="text/babel">
+      const root = ReactDOM.createRoot(document.querySelector('#root'))
 
-	<script type="text/babel">
-		const root = ReactDOM.createRoot(document.querySelector('#root'))
+      // 1.将文本定义成变量
+      let msg = 'Hello world'
 
-		// 1.将文本定义成变量
-		let msg = 'Hello world'
+      // 2.监听按钮的点击
+      function onbtnClick() {
+        msg = 'Hello React'
+        rootRender()
+      }
 
-		// 2.监听按钮的点击
-		function onbtnClick() {
-			msg = 'Hello React'
-			rootRender()
-		}
-
-		// 3.封装一个渲染函数
-		function rootRender() {
-			// 第一个括号表示 render 方法执行，第二个括号表示 jsx 代码块整体
-			root.render((
-				<div>
-					<h2>{ msg }</h2>	
-					<button onClick={ onbtnClick }>修改文本</button>
-				</div>
-			))
-		}
-		rootRender()
-	</script>
-</body>
+      // 3.封装一个渲染函数
+      function rootRender() {
+        // 第一个括号表示 render 方法执行，第二个括号表示 jsx 代码块整体
+        root.render(
+          <div>
+            <h2>{msg}</h2>
+            <button onClick={onbtnClick}>修改文本</button>
+          </div>
+        )
+      }
+      rootRender()
+    </script>
+  </body>
 </html>

@@ -9,9 +9,11 @@
 <body>
 	<div id="root"></div>
 
-	<script src="../../lib/react.development.js"></script>
-	<script src="../../lib/react-dom.development.js"></script>
-	<script src="../../lib/babel.min.js"></script>
+  <!-- 添加依赖，三个包，使用 CDN 引入 -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <!-- babel -->
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
 	<script type="text/babel">
 		class App extends React.Component {
@@ -51,7 +53,7 @@
 
 						{/* this 绑定方式二：ES6 class fields */}
 						<button onClick={ this.onBtn2Click }>按钮2</button>
-						
+
 						{/* this 绑定方式三：直接传入一个箭头函数 */}
 						<button onClick={ () => this.onBtn3Click() }>按钮3</button>
 					</div>

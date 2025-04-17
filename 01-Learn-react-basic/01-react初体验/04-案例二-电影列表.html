@@ -9,9 +9,11 @@
 <body>
 	<div id="root"></div>
 
-	<script src="../../lib/react.development.js"></script>
-	<script src="../../lib/react-dom.development.js"></script>
-	<script src="../../lib/babel.min.js"></script>
+  <!-- 添加依赖，三个包，使用 CDN 引入 -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <!-- babel -->
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
 	<script type="text/babel">
 		// 封装 App 组件
@@ -34,7 +36,7 @@
 				)
 			}
 		}
-		
+
 		// 创建 root
 		const root = ReactDOM.createRoot(document.querySelector('#root'))
 		// 渲染组件
